@@ -1,6 +1,6 @@
 var bleno = require('bleno');
-var result = bleno.Characteristic.RESULT_SUCCESS;
-var data = Buffer.from([0x60]);
+var success = bleno.Characteristic.RESULT_SUCCESS;
+var data = Buffer.from([0x06,0x00]);
 
 var battery_service = new bleno.PrimaryService({
   uuid: '180f',
@@ -8,12 +8,16 @@ var battery_service = new bleno.PrimaryService({
     // Level
     new bleno.Characteristic({
       uuid: '2a19',
-      properties: ['read']
+      properties: ['notify', 'read'],
+      onSubscribe: function (maxValueSize, updateValueCallback) {
+        console.log('Battery: subscribe');
+      },
+      onReadRequest: function(offset, callback) {
+       console.log('battery read');
+       return callback(success, Buffer.from([0x60]));
+      }
     })
-  ],
-  onReadRequest: function(offset, callback) {
-   return callback(result, data);
-  }
+  ]
 });
 
 module.exports = battery_service;
