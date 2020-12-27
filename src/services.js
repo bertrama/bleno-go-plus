@@ -1,8 +1,7 @@
 var services = [
-  require('./services/firmware'),
+  require('./services/battery'),
   require('./services/control'),
-  require('./services/certificate'),
-  require('./services/battery')
+  require('./services/certificate')
 ];
 
 module.exports = services;

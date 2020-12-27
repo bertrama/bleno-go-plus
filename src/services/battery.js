@@ -1,13 +1,13 @@
 var bleno = require('bleno');
 var result = bleno.Characteristic.RESULT_SUCCESS;
-var data = Buffer.from('60');
+var data = Buffer.from([0x60]);
 
 var battery_service = new bleno.PrimaryService({
-  uuid: '0000180f00001000800000805f9b34fb',
+  uuid: '180f',
   characteristics: [
     // Level
     new bleno.Characteristic({
-      uuid: '00002a1900001000800000805f9b34fb',
+      uuid: '2a19',
       properties: ['read']
     })
   ],

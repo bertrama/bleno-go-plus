@@ -11,7 +11,7 @@ var control_service = new bleno.PrimaryService({
     // LED Vibrate
     new bleno.Characteristic({
       uuid: '21c5046267cb63a35c4c82b5b9939aec',
-      properties: ['read', 'write'],
+      properties: ['write'],
       onReadRequest: function (offset, callback) {
         return callback(success, Buffer.from([0]));
       },
@@ -24,8 +24,50 @@ var control_service = new bleno.PrimaryService({
     }),
     // Button Notification
     new bleno.Characteristic({
-      uuid: '21c5046267cb63a35c4c82b5b9939aec',
-      properties: ['read', 'notify'],
+      uuid: '21c5046267cb63a35c4c82b5b9939aed',
+      properties: ['notify'],
+      onReadRequest: function (offset, callback) {
+        callback(success, Buffer.from([0]));
+      },
+      onSubscribe: function (maxValueSize, updateValueCallback) {
+        notify.push(updateValueCallback);
+      },
+      onUnsubscribe: function () {
+        notify.pop();
+      }
+    }),
+    // Button Notification
+    new bleno.Characteristic({
+      uuid: '21c5046267cb63a35c4c82b5b9939aee',
+      properties: ['write'],
+      onReadRequest: function (offset, callback) {
+        callback(success, Buffer.from([0]));
+      },
+      onSubscribe: function (maxValueSize, updateValueCallback) {
+        notify.push(updateValueCallback);
+      },
+      onUnsubscribe: function () {
+        notify.pop();
+      }
+    }),
+    // Button Notification
+    new bleno.Characteristic({
+      uuid: '21c5046267cb63a35c4c82b5b9939aef',
+      properties: ['write'],
+      onReadRequest: function (offset, callback) {
+        callback(success, Buffer.from([0]));
+      },
+      onSubscribe: function (maxValueSize, updateValueCallback) {
+        notify.push(updateValueCallback);
+      },
+      onUnsubscribe: function () {
+        notify.pop();
+      }
+    }),
+    // Button Notification
+    new bleno.Characteristic({
+      uuid: '21c5046267cb63a35c4c82b5b9939af0',
+      properties: ['read'],
       onReadRequest: function (offset, callback) {
         callback(success, Buffer.from([0]));
       },
