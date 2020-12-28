@@ -1,4 +1,4 @@
-var bleno = require('bleno');
+var bleno = require('@abandonware/bleno');
 var success = bleno.Characteristic.RESULT_SUCCESS;
 var data = Buffer.from([0x06,0x00]);
 

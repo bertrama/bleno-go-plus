@@ -1,4 +1,4 @@
-var bleno = require('bleno');
+var bleno = require('@abandonware/bleno');
 var firmware_service = new bleno.PrimaryService({
   uuid: '0000fef500001000800000805f9b34fb',
   characteristics: [

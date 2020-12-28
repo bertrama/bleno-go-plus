@@ -1,5 +1,12 @@
 # Bleno Go+
 
+# Status: On hold until bleno supports answering pairing requests.
+
+Try following [@abandoneware/bleno](https://github.com/abandoneware/bleno) instead of [noble/bleno](https://github.com/noble/bleno).
+
+Also consider: Using [bluez/D-Bus](https://git.kernel.org/pub/scm/bluetooth/bluez.git/tree/doc) to build the service.  See: [bertrama/ruby-go-plus](https://github.com/bertrama/ruby-go-plus).
+
+
 An implementation of [PGPemu](https://github.com/yohanes/pgpemu) in bleno.
 
 From Bleno:

@@ -1,4 +1,4 @@
-var bleno = require('bleno');
+var bleno = require('@abandonware/bleno');
 var services = require('./services');
 var secrets = require('./secrets');
 var config = require('./config');
